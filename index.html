@@ -148,6 +148,24 @@
       color: rgba(255,255,255,0.42);
       text-transform: uppercase;
     }
+
+    .privacy-link {
+      position: absolute;
+      right: 8vw;
+      bottom: 5vh;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      pointer-events: auto;
+      transition: color 0.2s ease;
+    }
+
+    .privacy-link:hover,
+    .privacy-link:focus-visible {
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -162,6 +180,7 @@
     </form>
 
     <div class="footer-mark">Independent Game Studio</div>
+    <a class="privacy-link" href="privacy.html">Privacy Policy</a>
   </main>
 
   <script type="module">
