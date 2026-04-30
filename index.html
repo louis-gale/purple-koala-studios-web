@@ -313,7 +313,7 @@
 
       group.rotation.y += (mouse.x * 0.16 - group.rotation.y) * 0.045;
       group.rotation.x += (mouse.y * 0.12 - group.rotation.x) * 0.045;
-      particles.rotation.z = Math.sin(t * 0.08) * 0.035;
+      group.rotation.z = Math.sin(t * 0.08) * 0.035;
 
       composer.render();
     }
