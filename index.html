@@ -291,7 +291,15 @@
       bloom.setSize(window.innerWidth, window.innerHeight);
     });
 
+    let isPaused = false;
+
+    document.addEventListener("visibilitychange", () => {
+      isPaused = document.hidden;
+      if (!isPaused) requestAnimationFrame(animate);
+    });
+
     function animate(time) {
+      if (isPaused) return;
       requestAnimationFrame(animate);
 
       const t = time * 0.001;
