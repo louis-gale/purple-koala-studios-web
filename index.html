@@ -264,17 +264,24 @@
     scene.add(particles);
 
     const linePositions = new Float32Array(maxConnections * 2 * 3);
+    const lineColors = new Float32Array(maxConnections * 2 * 3);
     const lineGeometry = new THREE.BufferGeometry();
     lineGeometry.setAttribute("position", new THREE.BufferAttribute(linePositions, 3));
+    lineGeometry.setAttribute("color", new THREE.BufferAttribute(lineColors, 3));
     lineGeometry.setDrawRange(0, 0);
 
     const lineMaterial = new THREE.LineBasicMaterial({
-      color: new THREE.Color(0xa96bff),
+      vertexColors: true,
       transparent: true,
-      opacity: 0.05,
+      opacity: 0.06,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
+
+    const nearLineColor = new THREE.Color(0xd66bff);
+    const farLineColor = new THREE.Color(0x2b2f8e);
+    const minDepthZ = 2;
+    const maxDepthZ = 5;
 
     const connectionLines = new THREE.LineSegments(lineGeometry, lineMaterial);
     scene.add(connectionLines);
@@ -398,6 +405,17 @@
               linePositions[ptr++] = pos[j3];
               linePositions[ptr++] = pos[j3 + 1];
               linePositions[ptr++] = pos[j3 + 2];
+
+              const tA = THREE.MathUtils.clamp((z1 - minDepthZ) / (maxDepthZ - minDepthZ), 0, 1);
+              const tB = THREE.MathUtils.clamp((pos[j3 + 2] - minDepthZ) / (maxDepthZ - minDepthZ), 0, 1);
+
+              lineColors[ptr - 6] = farLineColor.r + (nearLineColor.r - farLineColor.r) * tA;
+              lineColors[ptr - 5] = farLineColor.g + (nearLineColor.g - farLineColor.g) * tA;
+              lineColors[ptr - 4] = farLineColor.b + (nearLineColor.b - farLineColor.b) * tA;
+              lineColors[ptr - 3] = farLineColor.r + (nearLineColor.r - farLineColor.r) * tB;
+              lineColors[ptr - 2] = farLineColor.g + (nearLineColor.g - farLineColor.g) * tB;
+              lineColors[ptr - 1] = farLineColor.b + (nearLineColor.b - farLineColor.b) * tB;
+
               connections++;
 
               if (connections >= maxConnections) break;
@@ -409,6 +427,7 @@
 
       lineGeometry.setDrawRange(0, connections * 2);
       lineGeometry.attributes.position.needsUpdate = true;
+      lineGeometry.attributes.color.needsUpdate = true;
     }
 
     function makeGlowSprite() {
