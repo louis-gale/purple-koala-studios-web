@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support and contact information for Word Ace by Purple Koala Studios." />
+  <title>Word Ace Support | Purple Koala Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #09060f;
+      --bg-soft: #13091d;
+      --panel: rgba(255, 255, 255, 0.04);
+      --panel-border: rgba(255, 255, 255, 0.14);
+      --text: #f5efff;
+      --muted: rgba(245, 239, 255, 0.74);
+      --accent: #c06fff;
+      --accent-soft: #e7c6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(192, 111, 255, 0.2) 0%, transparent 45%),
+        radial-gradient(circle at 80% 90%, rgba(133, 84, 255, 0.16) 0%, transparent 42%),
+        linear-gradient(170deg, var(--bg) 0%, var(--bg-soft) 100%);
+      padding: 5vh 5vw;
+      overflow-x: hidden;
+    }
+
+    .support {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--panel-border);
+      border-radius: 18px;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      margin-bottom: 0.5rem;
+      color: var(--accent-soft);
+    }
+
+    .updated {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    h2 {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      margin-top: 1.8rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    p,
+    li {
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    p {
+      margin-bottom: 0.9rem;
+    }
+
+    ul {
+      padding-left: 1.35rem;
+      margin-bottom: 0.9rem;
+    }
+
+    li + li {
+      margin-top: 0.35rem;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 340px;
+      min-height: 48px;
+      margin-top: 0.35rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--panel-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+      text-align: center;
+    }
+
+    a {
+      color: var(--accent-soft);
+    }
+
+    .page-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--panel-border);
+    }
+
+    @media (max-width: 480px) {
+      .support {
+        padding: 1.5rem;
+      }
+
+      .contact {
+        padding-inline: 0.7rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="support">
+    <h1>Word Ace Support</h1>
+    <p class="updated">Last Updated: July 20, 2026</p>
+
+    <p>Need help with Word Ace: Solitaire Puzzle? Purple Koala Studios is here to help with gameplay questions, technical problems, feedback, and privacy requests.</p>
+
+    <h2>Contact Support</h2>
+    <p>Email us and we will respond as soon as possible:</p>
+    <a class="contact" href="mailto:contact@purplekoalastudios.com">contact@purplekoalastudios.com</a>
+
+    <h2>What to Include</h2>
+    <p>To help us investigate quickly, please include:</p>
+    <ul>
+      <li>Your device model and operating-system version.</li>
+      <li>Your Word Ace app version.</li>
+      <li>A short description of what happened and the steps that led to it.</li>
+      <li>A screenshot, when it helps explain the issue.</li>
+    </ul>
+    <p>Please do not send passwords, payment-card details, or other sensitive information.</p>
+
+    <h2>Saved Progress</h2>
+    <p>Word Ace stores gameplay progress locally on your device. Deleting the app or clearing its data may permanently remove that progress.</p>
+
+    <h2>Privacy</h2>
+    <p>For details about local gameplay data, advertising, and your privacy choices, read our Privacy Policy.</p>
+
+    <nav class="page-links" aria-label="Related pages">
+      <a href="index.html">Purple Koala Studios home</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </main>
+</body>
+</html>
