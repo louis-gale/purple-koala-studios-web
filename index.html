@@ -41,7 +41,7 @@
       background: var(--bg);
       color: white;
       font-family: "Inter", system-ui, sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     canvas {
@@ -69,19 +69,47 @@
       align-self: center;
     }
 
-    .eyebrow {
-      font-size: clamp(0.72rem, 1vw, 0.9rem);
-      font-weight: 800;
-      letter-spacing: 0.28em;
-      color: var(--purple-soft);
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 0 22px rgba(191, 91, 255, 0.45);
+    .studio-brand {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 2.2vw, 2rem);
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: clamp(2rem, 4vh, 3.5rem);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .studio-brand::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: -10% -8%;
+      border-radius: 999px;
+      background: rgba(159, 65, 211, 0.09);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .studio-koala {
+      display: block;
+      width: clamp(84px, 9vw, 130px);
+      height: auto;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 8px 24px rgba(157, 59, 208, 0.22));
+    }
+
+    .studio-wordmark {
+      display: block;
+      width: clamp(210px, 27vw, 380px);
+      max-width: calc(100% - 100px);
+      height: auto;
+      min-width: 0;
     }
 
     h1 {
       font-family: "Space Grotesk", "Inter", sans-serif;
-      font-size: clamp(4.5rem, 11vw, 12rem);
+      font-size: clamp(4.5rem, 9vw, 10rem);
       font-weight: 700;
       letter-spacing: -0.05em;
       line-height: 0.82;
@@ -192,6 +220,20 @@
         align-self: start;
       }
 
+      .studio-brand {
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .studio-koala {
+        width: 76px;
+      }
+
+      .studio-wordmark {
+        width: 240px;
+        max-width: calc(100% - 92px);
+      }
+
       h1 {
         font-size: clamp(3rem, 16vw, 4.6rem);
         line-height: 0.9;
@@ -215,7 +257,10 @@
 <body>
   <main class="page">
     <div class="hero-content">
-      <div class="eyebrow">Purple Koala Studios</div>
+      <div class="studio-brand">
+        <img class="studio-koala" src="assets/koala-small.png" srcset="assets/koala-small.png 172w, assets/koala.png 340w" sizes="(max-width: 700px) 76px, (max-width: 933px) 84px, (max-width: 1444px) 9vw, 130px" width="340" height="365" alt="" fetchpriority="high" />
+        <img class="studio-wordmark" src="assets/wordmark.png" width="509" height="91" alt="Purple Koala Studios" />
+      </div>
       <h1>Games that glow after dark.</h1>
       <p class="copy">We build kinetic, luminous play worlds with sharp mechanics, bold character, and the kind of energy that makes players lean forward.</p>
 
